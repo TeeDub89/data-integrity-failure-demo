@@ -15,8 +15,9 @@ function loadNotes() {
     notesDiv.innerHTML = notes.map(n => `<div class="note">${n}</div>`).join("");
 }
 
-function saveNote() {
-    const note = document.getElementById("noteInput").value;
+function saveNote(note) {
+    const formattedNote = formatNote(note);
+    console.log("Saving note:", formattedNote);
 
     if (!note) {
         return;
