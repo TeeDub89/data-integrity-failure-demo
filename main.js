@@ -22,8 +22,9 @@ function saveNote() {
         return;
     }
 
+    const formattedNote = formatNote(note); // Format the note using formatNote
     const notes = JSON.parse(localStorage.getItem("notes")) || [];
-    notes.push(note);
+    notes.push(formattedNote); // Save the formatted note
     localStorage.setItem("notes", JSON.stringify(notes));
     loadNotes();
     document.getElementById("noteInput").value = "";
